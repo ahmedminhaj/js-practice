@@ -1,0 +1,1 @@
+console.log(('a' + + 'd' + 'd' + 'a').toLowerCase());

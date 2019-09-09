@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>eventBus</title>
+  </head>
+  <body>
+	<input type="text" id="student-name" value="" />
+	<button onclick="saveName()">SAVE</button>
+	<div>
+		Student Name: <span id="result"></span> 
+	</div>
+  </body>
+  <script>
+    var EventBus = {
+
+      eventListeners: {},
+
+      subscribe: function(eventName,_callback){
+        if(!this.eventListeners[eventName]){
+          this.eventListeners[eventName] = {};
+        }
+        this.eventListeners[eventName][eventName]=(_callback);   
+      },
+
+      unSubscribe: function(eventName){
+        if(!this.eventListeners[eventName]){
+          return;
+        }
+        if(!this.eventListeners[eventName][eventName]){
+          return;
+        }
+        this.eventListeners[eventName][eventName] = null;
+      },
+
+      publish: function(eventName, args){
+        if(!this.eventListeners[eventName]){    
+          return;
+        }
+        var callBackList = this.eventListeners[eventName];
+        for (fN in callBackList) {
+          var func = callBackList[fN];
+          if(typeof func == "function"){
+            func(args);                
+          }
+        }
+      }
+    };	
+	
+	EventBus.subscribe("studentChange", function(msg) {showData("result", msg);});
+	
+  	function saveName(){		
+		var name = document.getElementById("student-name").value;		
+		EventBus.publish("studentChange", name);	
+		//EventBus.unSubscribe("studentChange");
+  	}	
+
+  	function showData(id,data){
+  		document.getElementById(id).innerHTML = data;
+  	}    
+	
+  </script>
+ </html>

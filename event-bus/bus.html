@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>EventBus</title>
+</head>
+<body>
+	<input type="text" id="student-name" value="" />
+	<button onclick="saveName()">SAVE</button>
+	<div>
+		Student Name: <span id="result"></span> 
+	</div>
+</body>
+<script>
+var array=[];
+var events = {
+	events: {},
+	
+	subscribe: function (eventName, fn) {
+		this.events[eventName] = this.events[eventName] || [];
+		this.events[eventName].push(fn);
+	},
+	
+	unsubscribe: function(eventName, fn) {
+		if (this.events[eventName]) {
+		console.log(eventName)
+		  for (var i = 0; i < this.events[eventName].length; i++) {
+			if (this.events[eventName][i] === fn) {
+			  this.events[eventName].splice(i, 1); 
+			  break;
+			}
+		  };
+		}
+	},
+	
+	publish: function (eventName, data) {
+		if (this.events[eventName]) {
+		  this.events[eventName].forEach(function(fn) {
+			fn(data);
+			//console.log(fn(data));
+			array.push(fn(data));
+		  });
+		}
+	}
+};
+
+
+function saveName(){
+	var name = document.getElementById("student-name").value;
+	events.subscribe("inputData",outputData = (name)=>{ return name});
+	events.publish("inputData",name);
+	document.getElementById("result").innerHTML = array;
+}
+	
+	
+</script>
+</body>

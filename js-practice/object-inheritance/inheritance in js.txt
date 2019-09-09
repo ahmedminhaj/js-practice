@@ -1,0 +1,24 @@
+constructor inheritance::
+	built-in constructor such as array and object, 
+	custom constructor.
+	constructor is useful to create multiple objects with same properties.
+
+prototype inheritance::
+	prototype use to add new properties and method to a constructor function.
+	an object has a number of properties and a parent property, (__protp__)
+	a constructor creates objects and has an associated prototype object, which is simply another object.
+	when object created, parent set to the prototype object.
+	declaring methods on the prototype is more memory and time efficient.
+	need not to re-declaring any method to create new object.  
+
+factory function inheritance::
+	  
+
+prototype chain::
+	when a method invoke with a new object, 1st check it's own peoperties then in it's prototype properties after that it's check parents properties and prototype. 
+
+*The call() allows for a function/method belonging to one object to be assigned and called for a different object.
+ 
+ 
+ ****to find lan network::::: netsh wlan show profiles
+							: netsh wlan show profile PavDev key=clear
