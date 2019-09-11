@@ -1,21 +1,10 @@
-var f = {
-	a : 'apple',
-	b : 'banana',
-	c : 'Cherries',
-	d : 'Dragon Fruit'
-};
-var temp = {};
-var funcName = [];
-(function( o ){	
-    for(var key in f){
-		funcName = 'get'+key;
-		temp[funcName] = function(){return o[key];}	
-		
+var o = {p1: "Jack", p2: "Rob", p3: "Bob", p4: "Rock", p5: "Trump"};
+(function( p ){
+    for(let key in p){
+		o['get'+key] = function(){return p[key];}	
 	}
-	
-	Object.assign(o, temp);	
-})( f )
-
-console.log( f.getb() );
-console.log( f.geta() );
-console.log( f.getd() );
+})( o )
+console.log( o.getp1() );
+console.log( o.getp2() );
+console.log( o.getp3() );
+console.log( o.getp5() );
