@@ -13,21 +13,20 @@ sphere.calArea = function(){
 	return (4 * Math.PI * (Math.pow(sphere.radius, 2)))
 };
 
-sphere.compare = function(arg){
-	var differ;
-	if(sphere.calArea() > arg){
-		differ = sphere.calArea() - arg;
-		return differ;
+sphere.compare = function(arg){};
+
+function differ(){
+	var d;
+	if (sphere.calArea() > circle.calArea()){
+		d = sphere.calArea() - circle.calArea();
+		console.log("Difference between Circle and Sphere total area::", d.toFixed(2));
 	}else{
-		differ = arg - sphere.calArea();
-		return differ;
+		d = circle.calArea() - sphere.calArea();
+		console.log("Difference between Circle and Sphere total area::", d.toFixed(2));
 	}
-};
+}
 
-var sphereArea = sphere.calArea();
-var circleArea = circle.calArea();
+console.log("Total Circle Area::", circle.calArea().toFixed(2));
+console.log("Total Sphere Area::", sphere.calArea().toFixed(2));
 
-console.log("Total Circle Area::", circleArea.toFixed(2));
-console.log("Total Sphere Area::", sphereArea.toFixed(2));
-
-console.log("Difference between Circle and Sphere total area::", sphere.compare(circle.calArea()));
+sphere.compare(differ());
