@@ -1,0 +1,3 @@
+Symbolic Constants
+	#define name replacement-txt
+	#define lower 0

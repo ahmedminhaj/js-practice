@@ -81,10 +81,119 @@ function f(x, y, z){
 	return x + y + z;
 }
 
-var data = [1,2,3,6,8];
+var data = [1,2,10,3,6,8];
 var total = 0;
 for(var i = 0; i < data.length; i++){
 	total += data[i];
 }
 var mean = total/data.length;
-console.log(mean);
+console.log("Total mean::", mean);
+
+var calculator = {
+	op1: 1,
+	op2: 2,
+	add: function(){
+		this.result = this.op1 + this.op2;
+	}
+};
+calculator.add();
+console.log(calculator.result);
+
+function objFunc(obj){
+	obj.make = "Toyota";
+}
+
+var car = { make: "Honda", model: "Vajel"};
+var x = car.make;
+objFunc(car);
+var y = car.make;
+console.log(x);
+console.log(y);
+
+var f = function fac(n){return n<2 ? 1 : n * fac(n-1) };
+console.log(f(5));
+
+function map(f,a){
+	var sumAry = [], i;
+	for(i = 0; i < a.length; i++){
+		sumAry[i] = f(a[i]);
+	}
+	return sumAry;
+}
+var S = function (x){
+	return x + x + x;
+}
+var nums = [1,2,3,4,7,9];
+var numsum = map (S, nums);
+console.log(numsum);
+
+function outside(x){
+	function inside(y){
+		return x+y;
+	}
+	return inside;
+}
+var finside = outside(5);
+var result = finside(3);
+console.log(result);
+console.log(outside(5)(7));
+
+function outside1() {
+  var x = 5;
+  function inside1(x) {
+    return x * 2;
+  }
+  return inside1;
+}
+console.log(outside1()(3));
+
+//closures
+var pet = function(name){
+	var getName = function(){
+		return name;
+	}
+	return getName;
+}
+myPet = pet("vivi");
+console.log(myPet());
+
+var createPet = function(name) {
+  var sex;
+  
+  return {
+    setName: function(newName) {
+      name = newName;
+    },
+    
+    getName: function() {
+      return name;
+    },
+    
+    getSex: function() {
+      return sex;
+    },
+    
+    setSex: function(newSex) {
+      if(typeof newSex === 'string' && (newSex.toLowerCase() === 'male' || 
+        newSex.toLowerCase() === 'female')) {
+        sex = newSex;
+      }
+    }
+  }
+}
+
+var petCat = createPet('vv');
+console.log(petCat.getName());                  
+
+petCat.setName('Oliver');
+petCat.setSex('male');
+console.log(petCat.getSex());                   
+console.log(petCat.getName());
+
+var getCode = (function(){
+	var api = "0p9k02";
+	return function(){
+		return api;
+	};
+})();
+console.log(getCode());
