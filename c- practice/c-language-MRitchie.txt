@@ -1,3 +1,20 @@
-Symbolic Constants
+chapter 01::
+Symbolic Constants::
 	#define name replacement-txt
 	#define lower 0
+character input output::
+	getchar() function is used to get/read a character from keyboard input.
+	Declaration: int getchar(void)
+	putchar() function is used to write a character on standard output/screen.
+	Declaration: int putchar(int char)
+call by value::
+	functionName(variable)
+	the value of the variable is used in the function call in the call by value method.
+	the value of the actual parameters is copied into the formal parameters.
+	can not modify the value of the actual parameter by the formal parameter.
+	different memory is allocated for actual and formal parameters.
+call by reference::
+	functionName(&variableName)
+	the address of the variable is passed into the function call as the actual parameter.
+	value of the actual parameters can be modified by changing the formal parameters.
+	the memory allocation is similar for both formal parameters and actual parameters.
