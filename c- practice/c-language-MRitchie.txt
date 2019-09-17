@@ -18,3 +18,67 @@ call by reference::
 	the address of the variable is passed into the function call as the actual parameter.
 	value of the actual parameters can be modified by changing the formal parameters.
 	the memory allocation is similar for both formal parameters and actual parameters.
+
+chapter 02::
+Type Conversion::
+	implicit type conversion:
+		Also known as ‘automatic type conversion’. Done by the compiler on its own. 
+		Type conversion (type promotion) takes place to avoid lose of data.
+		to lose information, overflow can occur.
+	explicit type conversion:
+		type casting and it is user defined. 
+		to take advantage of certain features of type hierarchies or type representations.
+		compute expressions containing variables of different data types.
+
+Loop::
+	while loop::
+		while (condition) {
+            		statements;
+		}
+	Do-while::
+		do {
+			statements
+		} while (expression);
+	for loop::
+		for (initial value; condition; incrementation or decrementation ) 
+		{
+			statements;
+		}
+
+Jump statement::
+	Break:: Break statement is used to discontinue the normal execution of the code without any condition,
+		and it will jumps out from the current executing loop.
+	Continue:: it will not jump out of the loop instead stop executing the set instructions inside loop body for current iteration 
+		and jumps to execute the body of loop for next iterations.
+	Goto::  This statement is a unconditional jump statement. 
+		It can be used anywhere in the program to jump from its current execution to some other lines in the code. 
+		Once it is jumped to some other line, it will continue executing the codes from there sequentially. 
+		It cannot come back again to previous execution lines.
+
+Scope Rules::
+	Scope of an identifier is the part of the program where the identifier may directly be accessible.
+	global scope::Can be accessed anywhere in a program.
+	block scope:: A Block is a set of statements enclosed within left and right braces.
+
+Storage class in c::
+	auto:: within ablock 
+	extern:: global multiple files
+	static:: within a block
+	register:: within a block
+
+Recursion:: C functions may be used recursively, that is, a function may be call itself either directly or indirectly.
+
+Chapter::5
+Pointers::
+	A pointer is a variable whose value is the address of another variable, direct address of the memory location.
+	define a pointer variable, assign the address of a variable to a pointer, finally access the value at the address available in the pointer variable.
+	Normal variable stores the value whereas pointer variable stores the address of the variable.
+	& symbol is used to get the address of the variable. 
+	* symbol is used to get the value of the variable that the pointer is pointing to.
+	Two pointers can be subtracted to know how many elements are available between these two pointers.
+	but pointer addition, multiplication, division is not possible.
+	size of a array is 2 byte.
+
+	NULL Pointers:: Always C pointer is initialized to null, i.e. int *p = null.
+			a pointer in C is assigned to NULL, it means it is pointing to nothing.
+	
