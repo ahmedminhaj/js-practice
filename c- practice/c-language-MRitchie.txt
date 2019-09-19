@@ -81,4 +81,7 @@ Pointers::
 
 	NULL Pointers:: Always C pointer is initialized to null, i.e. int *p = null.
 			a pointer in C is assigned to NULL, it means it is pointing to nothing.
+
+Pointer array::
+	&x[i] is equivalent to x+i and x[i] is equivalent to *(x+i).
 	
