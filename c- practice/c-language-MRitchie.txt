@@ -1,12 +1,14 @@
-chapter 01::
+123chapter 01::
 Symbolic Constants::
 	#define name replacement-txt
 	#define lower 0
+const vs #define::
+	#define is pre-processor directive while const is a keyword
+	#define is not scope controlled whereas const is scope controlled
+	Macros (#define) can be redefined but const cannot
 character input output::
 	getchar() function is used to get/read a character from keyboard input.
-	Declaration: int getchar(void)
 	putchar() function is used to write a character on standard output/screen.
-	Declaration: int putchar(int char)
 call by value::
 	functionName(variable)
 	the value of the variable is used in the function call in the call by value method.
@@ -63,7 +65,7 @@ Scope Rules::
 Storage class in c::
 	auto:: within ablock 
 	extern:: global multiple files
-	static:: within a block
+	static:: within a block, static variables preserve their previous value in their previous scope and are not initialized again in the new scope.
 	register:: within a block
 
 Recursion:: C functions may be used recursively, that is, a function may be call itself either directly or indirectly.
@@ -81,7 +83,48 @@ Pointers::
 
 	NULL Pointers:: Always C pointer is initialized to null, i.e. int *p = null.
 			a pointer in C is assigned to NULL, it means it is pointing to nothing.
-
+Pointer to pointer ::
+	a pointer holds the address of another pointer. declaretion:: int **pr;
+Pointer to a function::
+	pass a pointer as an argument instead of a variable then the address of the variable is passed instead of the value.
+	any change made by the function using the pointer is permanently made at the address of passed variable.
+	technique is known as call by reference in C.
+Function Pointer::
+	int *f(); 
+	f: function returning pointer to int
+	int (*pf)(); 
+	pf: pointer to function returning int
 Pointer array::
 	&x[i] is equivalent to x+i and x[i] is equivalent to *(x+i).
-	
+pointer to an array::
+	points to the whole array.
+Pointers and two dimensional Arrays::
+	can access each element by using two subscripts, 
+	where first subscript represents the row number and second subscript represents the column number.
+	can access any element arr[i][j] of the array using the pointer expression *(*(arr + i) + j).
+
+chapter::6
+Structure::
+	structure is a user defined data type in C/C++. 
+	structure creates a data type that can be used to group items of possibly different types into a single type.
+	‘struct’ keyword is used to create a structure.
+	structure variable can either be declared with structure declaration or as a separate declaration like basic types.
+	when a datatype is declared, no memory is allocated for it. 
+	Memory is allocated only when variables are created. 
+	Structure members can be initialized using curly braces ‘{}’.
+	Structure members are accessed using dot (.) operator.
+	Designated Initialization allows structure members to be initialized in any order.
+	a pointer to structure, members are accessed using arrow ( -> ) operator.
+	r.pt1.x
+	rp->pt1.x
+	(r. pt1).x
+	(rp->pt1).x
+	all r same expression.
+Structure and function::
+	A structure can be passed to any function from main function or from any sub function.
+	structure variable should be declared outside the main function. 
+	So, this structure will be visible to all the functions in a C program.	
+Array of structure::
+	An array of structres in C can be defined as the collection of multiple structures variables 
+	where each variable contains information about different entities.
+	store information about multiple entities of different data types.

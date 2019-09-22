@@ -14,10 +14,10 @@ int main(){
 	fscanf(fp, "%s", d);
 	fclose(fp);
 	char *s1, *s2, *s3, *s4;
-	s1 = a;
-	s2 = b;
-	s3 = c;
-	s4 = d;
+	s1 = &a[0];
+	s2 = &b[0];
+	s3 = &c[0];
+	s4 = &d[0];
 	printf("Length of string: %d\n", s_length(s1));
 	printf("difference: %d\n", s_compare(s1, s2));
 	s_copy(s1, s2);
