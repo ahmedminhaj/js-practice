@@ -46,7 +46,7 @@ int main(){
 	struct point newpoint;
 	struct point addpoint(struct point, struct point);
 	struct point makepoint(int, int);
-	line1.pt1 = makepoint(10, 50);
+	line1.pt1 = makepoint(10, 30);
 	line1.pt2 = makepoint(20, 40);
 	newpoint = addpoint(line1.pt1, line1.pt2);
 	mid = makepoint((line1.pt1.x + line1.pt2.x)/2, (line1.pt1.y + line1.pt2.y)/2);

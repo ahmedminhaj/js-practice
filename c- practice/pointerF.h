@@ -45,18 +45,18 @@ int s_compare(char *s1, char *s2){
 			d = s_length(s2) - s_length(s1);
 			return d;
 		}
-	}
-	
+	}	
 }
 
 char *s_string(char *s4, int s, int e){
 	char *sub;
 	int i;
-	sub = malloc(e+1);
+	sub = (char*)malloc((e+1)*sizeof(char));
 	for(i=0; i<e; i++){
 	   *(sub+i) = *(s4+s);
 	   s4++;
 	}
 	*(sub+i) = '\0';
 	return sub;
+	free(sub);
 }

@@ -1,4 +1,4 @@
-123chapter 01::
+chapter 01::
 Symbolic Constants::
 	#define name replacement-txt
 	#define lower 0
@@ -34,16 +34,15 @@ Type Conversion::
 
 Loop::
 	while loop::
-		while (condition) {
+		while (condition){
             		statements;
 		}
 	Do-while::
-		do {
+		do{
 			statements
 		} while (expression);
 	for loop::
-		for (initial value; condition; incrementation or decrementation ) 
-		{
+		for (initial value; condition; incrementation or decrementation ){
 			statements;
 		}
 
@@ -103,6 +102,15 @@ Pointers and two dimensional Arrays::
 	where first subscript represents the row number and second subscript represents the column number.
 	can access any element arr[i][j] of the array using the pointer expression *(*(arr + i) + j).
 
+Dynamic memory allocation::
+	C language provides features to manual management of memory
+	can manage memory at run time,
+	require memory allocation or reallocation at run time.
+	> malloc()::used to allocate specified number of bytes (memory blocks).
+	> calloc()::used to allocate specified number of bytes (memory blocks) and initialize all memory with 0.
+	> reaclloc()::used to reallocate the dynamically allocated memory to increase or decrease amount of the memory.
+	> free()::used to release dynamically allocated memory.
+
 chapter::6
 Structure::
 	structure is a user defined data type in C/C++. 
@@ -117,7 +125,7 @@ Structure::
 	a pointer to structure, members are accessed using arrow ( -> ) operator.
 	r.pt1.x
 	rp->pt1.x
-	(r. pt1).x
+	(r.pt1).x
 	(rp->pt1).x
 	all r same expression.
 Structure and function::
@@ -128,3 +136,12 @@ Array of structure::
 	An array of structres in C can be defined as the collection of multiple structures variables 
 	where each variable contains information about different entities.
 	store information about multiple entities of different data types.
+self-referential structure::
+	have one or more pointers which point to the same type of structure, as their member.
+Self Referential Structure with Single Link: 
+	These structures can have only one self-pointer as their member, access the corresponding data members.
+	the pointer should be initialized properly or NULL before accessing,
+	by default it contains garbage value.
+Self referential structures with multiple links:
+	have more than one self-pointers.
+	tructures can easily connect to more than one nodes at a time.
