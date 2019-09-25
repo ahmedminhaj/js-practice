@@ -136,6 +136,9 @@ Array of structure::
 	An array of structres in C can be defined as the collection of multiple structures variables 
 	where each variable contains information about different entities.
 	store information about multiple entities of different data types.
+
+pointers to structure::
+	
 self-referential structure::
 	have one or more pointers which point to the same type of structure, as their member.
 Self Referential Structure with Single Link: 
