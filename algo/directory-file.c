@@ -4,7 +4,7 @@
 
 void dirFile(char *dirPath, const int step){
     int i;
-	char dpath[1000];
+	char fpath[1000];
     struct dirent *dp;
     DIR *dir = opendir(dirPath);
 
@@ -17,10 +17,10 @@ void dirFile(char *dirPath, const int step){
                     printf("  ");
             }
 			printf("|--%s\n", dp->d_name);
-            strcpy(dpath, dirPath);
-            strcat(dpath, "/");
-            strcat(dpath, dp->d_name);
-            dirFile(dpath, step+2);
+            strcpy(fpath, dirPath);
+            strcat(fpath, "/");
+            strcat(fpath, dp->d_name);
+            dirFile(fpath, step+2);
         }
     }
     closedir(dir);
