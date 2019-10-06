@@ -1,0 +1,11 @@
+Directory tree::
+	To access a directory, use the "opendir()" function. It’s prototyped in the dirent.h header file.
+	After opening the directory and doing whatever, need to use the "closedir()" function to close the directory.
+	
+	struct dirent *readdir(DIR *dirp);
+
+	Structure variable "dirent" is a pointer that contains information about a specific entry read from a directory, 
+	referenced by the "DIR" pointer used in the "readdir()" function. 
+	"dirent" structure is customized based on the file system.
+	key member worthy of access is "d_name", which represent the directory entry’s filename.
+	"d_name" structure member used to rading a directory.
