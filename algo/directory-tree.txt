@@ -9,3 +9,9 @@ Directory tree::
 	"dirent" structure is customized based on the file system.
 	key member worthy of access is "d_name", which represent the directory entry’s filename.
 	"d_name" structure member used to rading a directory.
+
+File-size::
+	fseek() is used to move file pointer associated with a given file to a specific position.
+	ftell() in C is used to find out the position of file pointer in the file with respect to starting of the file.
+	Using fseek(), move file pointer to end, 
+	then using ftell(), find its position which is actually size in bytes.
