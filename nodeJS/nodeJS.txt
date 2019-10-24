@@ -1,0 +1,29 @@
+Node.js application consists of three important components -
+	Import required modules - We use the require directive to load Node.js modules.
+	Create server - A server which will listen to client's requests similar to Apache HTTP Server.
+	Read request and return response - The server created in an earlier step will read the HTTP request made by the client 
+	which can be a browser or a console and return the response.
+
+use the require directive to load the http module and store the returned HTTP instance into an http variable.
+use the created http instance and call http.createServer() method to create a server instance and then bind it at port 8081 
+using the listen method associated with the server instance. Pass it a function with parameters request and response. 
+Write the sample implementation to always return "Hello World".
+
+REPL stands for Read Eval Print Loop
+	Read - Reads user's input, parses the input into JavaScript data-structure, and stores in memory.
+	Eval - Takes and evaluates the data structure.
+	Print - Prints the result.
+	Loop - Loops the above command until the user presses ctrl-c twice.
+
+event loop::
+	// Import events module
+	var events = require('events');
+	
+	// Create an eventEmitter object
+	var eventEmitter = new events.EventEmitter();
+
+	// Bind event and event  handler as follows
+	eventEmitter.on('eventName', eventHandler);
+	
+	// Fire an event 
+	eventEmitter.emit('eventName');
