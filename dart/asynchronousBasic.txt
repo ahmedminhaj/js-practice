@@ -1,0 +1,50 @@
+Future<void> main() async {
+  var greet = await greetingUser();
+  print(greet);
+  orderDelay(4);
+  await printOrder();
+  var logout = await goodBye();
+  print(logout);
+}
+
+void orderDelay(s){
+  for(int i = 1; i <= s; i++){
+    Future.delayed(Duration(seconds:i), () => print(i));
+  }
+}
+
+Future<String> getUserName(){
+  return Future.delayed(Duration(seconds:2), () => "Jabbor");
+}
+
+Future<String> getUserOrder(){
+  return Future.delayed(Duration(seconds:5), () => "Chiken Khichuri");
+}
+
+String hello(user){
+  String greet = "Hello $user";
+  return greet;
+}
+
+Future<String> greetingUser() async{
+  var userName = await getUserName();
+  return hello(userName);
+}
+
+Future<void> printOrder() async{
+  print("Awaiting for Your order...");
+  var order = await getUserOrder();
+  print("User Order: $order");
+}
+
+Future<String> goodBye() async{
+  print("Order receiving");
+  orderDelay(2);
+  try{
+    var user = await getUserName();
+    return "$user, thanks for your order";
+  }catch(e){
+    return "failed to logout $e";
+  }
+}
+

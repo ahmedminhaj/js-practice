@@ -1,0 +1,104 @@
+void main() {
+  
+  const four = true;
+  var list = [1, 2, 3];
+  list[1] = 4;
+  
+  var list2 = [9,8,7, list];
+  print(list2[1]);
+  
+  list2.forEach((item){
+    print("${list2.indexOf(item)} : $item");
+  });
+  
+  var nav = ['Home', 'About', 'contact', if(four) 'project'];
+  print(nav);
+  
+  nav.forEach((item){
+    print("${nav.indexOf(item)} : $item");
+  });
+  
+  var sets = {'flutter', 'dart', 'json'};
+  
+  var set2 = <String>{};
+  set2.add('data-rendering');
+  set2.addAll(sets);
+  print(set2);
+  
+  var projects = {
+    1 : 'pavilion',
+    2 : 'livescore',
+    3 : 'lojens',
+  };
+  
+  projects[4] = 'cloud HR';
+  print(projects);
+  
+  Address address = new Address();
+  address ..house = 64
+    ..road = 6
+    ..city = "dhaka";
+  
+  var location = address.getAddress();
+  
+  var upperCase = (msg) => "${msg.toUpperCase()}";
+  
+  print(say(upperCase("jack"), upperCase("hello"), "phone"));
+  print(hello("rock", "hi", location));
+  doStuff("jack", set2, projects);
+  
+  var adder4 = makeadder(4);
+  var adder2 = makeadder(2);
+  
+  print(adder4(5) + adder2(1));
+  
+}
+
+say ( from,  msg, [device]){
+  var result = "$from says $msg";
+  if(device != null){
+    result = "$result with $device";
+  }
+  return result;
+}
+
+hello(from, msg, [address, device = "desktop"]){
+  var result = "$from sends $msg";
+  if(device !=null){
+    result = "$result from $device";
+  }
+  if(address != null){
+    result = "$result, location: $address";
+  }
+  return result;
+}
+
+printElement(element){
+  print(element);
+}
+
+doStuff(person, [Set sets = const {"HTML", "CSS", "JS"}, Map map = const { 1 : "portfolio", 2: "website"}]){
+  sets.forEach(printElement);
+  print(map);
+  
+  var result = "$person work with $sets";
+  if(map != null){
+    result = "$result, previous work $map";
+  }
+  print(result);
+}
+
+makeadder(num addBy){
+  return (num i) =>  addBy + i;
+}
+
+class Address{
+  var house;
+  var road;
+  var city;
+  
+ String getAddress(){
+    var yourAddress ="House $house, Road $road, City $city";
+    return yourAddress; 
+  }
+}

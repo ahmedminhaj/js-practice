@@ -1,0 +1,162 @@
+import 'dart:math';
+
+void main(){
+  var person1 = Person();
+  person1.name = "sam";
+  person1.greet();
+  
+  var student1 = Student();
+  student1.name = "paul";
+  student1.courses = 5;
+  student1.totalScore = 474.0;
+  student1.greet();
+  print("Your avarage score: ${student1.totalScore}");
+  print("\n");
+  
+  var tv = Television();
+  tv.volumUp(6);
+  tv.volumLow(11);
+  print("\n");
+  
+  var point1 = Point(2, 3);
+  var point2 = Point(5, 6);
+  
+  print("Distance from origin: ${point1.distanceFromOrigin()}");
+  print("Distance between two point: ${point1.distanceTo(point2)}");
+  print("\n");
+  
+  var square = Square();
+  square.point01 = point1;
+  square.point02 = point2;
+  square.point03 = Point(20, 30);
+  square.point04 = Point(50, 60);
+  
+  double side = square.distance();
+  
+  print("A side of Square: $side");
+  print("Area of Square: ${square.area(side)}");
+  square.rightAngle();
+  print("\n");
+  
+  var circle = Circle();
+  circle.point01 = Point(14, 18);
+  double radius = circle.distance();
+  print("Circle radius is: $radius");
+  print("Circle area total area is: ${circle.area(radius)}");
+  circle.rightAngle();
+  circle.arc(radius);
+  
+}
+
+
+class Person{
+  var name; 
+  
+  //Person(this.name);
+  
+  void greet(){
+    print("HI $name");
+  }
+}
+
+class Student extends Person{
+  var courses;
+  double tScore;
+  
+  set totalScore(double score){
+    tScore = score / courses;
+  }
+  double get totalScore{
+    return tScore;
+  }
+}
+
+class Remote{
+  void volumUp(int vol){
+    print("Volum is $vol");
+  }
+  void volumLow(int vol){
+    print("Volum is $vol");
+  }
+}
+
+class Television implements Remote{
+   void volumUp(int vol){
+     vol++;
+    print("Volum is $vol");
+  }
+  void volumLow(int vol){
+    vol--;
+    print("Volum is $vol");
+  }
+} 
+
+class Point{
+  var x;
+  var y;
+  
+  Point(this.x, this.y);
+  Point.origin(){
+    x = 0;
+    y = 0;
+  }
+  
+  double distanceFromOrigin() => sqrt(x*x + y*y);
+  
+  double distanceTo(Point other){
+    var dx = x - other.x;
+    var dy = y - other.y;
+    return sqrt(dy* dy + dx * dx); 
+  }
+}
+
+abstract class Shape{
+  Point point01;
+  Point point02;
+  
+  double distance();
+  double area(double side);
+}
+
+mixin Arc{
+  void arc(double radius){
+    double arc = 2 * 3.14 * radius * (90/360);
+    print("This shape has Arc, arc length is: $arc");
+  }
+}
+
+mixin Angle{
+  void rightAngle(){
+    print("This shape has right angle");
+  }
+}
+
+class Square extends Shape with Angle{
+  Point point03;
+  Point point04;
+  rightAngle();
+  
+  double distance(){
+    double side = point03.distanceTo(point02);
+    return side;
+  }
+  
+  double area(double side){
+    double tArea = side * side;
+    return tArea;
+  }
+}
+
+class Circle extends Shape with Arc, Angle{
+  arc(double radius);
+  rightAngle();
+  double distance(){
+    double radius = point01.distanceFromOrigin();
+    return radius;
+  }
+  
+  double area(double radius){
+    double cArea = 2 * 3.14 * (radius*radius);
+    return cArea;
+  }
+}
